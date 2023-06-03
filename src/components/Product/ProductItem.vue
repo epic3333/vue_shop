@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <li class="catalog__item">
     <ProductImage :image="product.image" :title="product.title"></ProductImage>
     <ProductTitle :title="product.title"></ProductTitle>
     <ProductPrice :price="product.price"></ProductPrice>
     <ProductColor></ProductColor>
-  </div>
+  </li>
 </template>
 
 <script>
