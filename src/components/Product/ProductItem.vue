@@ -3,7 +3,8 @@
     <ProductImage :image="product.image" :title="product.title"></ProductImage>
     <ProductTitle :title="product.title"></ProductTitle>
     <ProductPrice :price="product.price"></ProductPrice>
-    <ProductColor></ProductColor>
+    <ProductColor :colorId="product.colorId"
+                  :colorVal="product.colorVal"></ProductColor>
   </li>
 </template>
 
