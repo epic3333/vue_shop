@@ -1,4 +1,3 @@
-import { default } from '../../App.vue';
 <template>
     <main class="content container">
         <div class="content__top">
@@ -217,5 +216,6 @@ import { default } from '../../App.vue';
 <script>
 export default {
   name: 'ProductPage',
+  props: ['pageParams'],
 };
 </script>

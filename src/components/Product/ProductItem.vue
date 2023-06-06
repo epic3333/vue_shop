@@ -1,5 +1,5 @@
 <template>
-  <li class="catalog__item">
+  <li class="catalog__item" @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
     <ProductImage :image="product.image" :title="product.title"></ProductImage>
     <ProductTitle :title="product.title"></ProductTitle>
     <ProductPrice :price="product.price"></ProductPrice>
