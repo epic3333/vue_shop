@@ -1,8 +1,6 @@
 <template>
   <div>
-    <MainPage v-if="currentPage == 'main'"></MainPage>
-    <ProductPage v-else-if="currentPage == 'product'"></ProductPage>
-    <NotFoundPage v-else></NotFoundPage>
+    <component :is="currentPageRoute"></component>
   </div>
 </template>
 
@@ -11,6 +9,11 @@ import MainPage from './components/pages/MainPage.vue';
 import ProductPage from './components/pages/ProductPage.vue';
 import NotFoundPage from './components/pages/NotFoundPage.vue';
 
+const routes = {
+  main: 'MainPage',
+  product: 'ProductPage',
+};
+
 export default {
   name: 'app',
   components: { MainPage, ProductPage, NotFoundPage },
@@ -18,6 +21,11 @@ export default {
     return {
       currentPage: 'main',
     };
+  },
+  computed: {
+    currentPageRoute() {
+      return routes[this.currentPage] || 'NotFoundPage';
+    },
   },
 };
 </script>
