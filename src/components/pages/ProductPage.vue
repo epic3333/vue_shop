@@ -23,7 +23,6 @@
         <section class="item">
         <div class="item__pics pics">
             <div class="pics__wrapper">
-            // eslint-disable-next-line max-len
             <img width="570" height="570" src="img/phone-square.jpg"
             srcset="img/phone-square@2x.jpg 2x" alt="Название товара">
             </div>

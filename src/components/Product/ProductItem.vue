@@ -9,14 +9,10 @@
 </template>
 
 <script>
-// eslint-disable-next-line import/no-unresolved
-import ProductImage from '@/components/Product/ProductImage.vue';
-// eslint-disable-next-line import/no-unresolved
-import ProductTitle from '@/components/Product/ProductTitle.vue';
-// eslint-disable-next-line import/no-unresolved
-import ProductPrice from '@/components/Product/ProductPrice.vue';
-// eslint-disable-next-line import/no-unresolved
-import ProductColor from '@/components/Product/ProductColor.vue';
+import ProductImage from './ProductImage.vue';
+import ProductTitle from './ProductTitle.vue';
+import ProductPrice from './ProductPrice.vue';
+import ProductColor from './ProductColor.vue';
 
 export default {
   components: {

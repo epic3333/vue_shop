@@ -6,8 +6,7 @@
 </template>
 
 <script>
-// eslint-disable-next-line import/no-unresolved
-import ProductItem from '@/components/Product/ProductItem.vue';
+import ProductItem from './ProductItem.vue';
 
 export default {
   components: { ProductItem },
