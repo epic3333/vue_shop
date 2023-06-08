@@ -9,12 +9,12 @@
             </li>
             <li class="breadcrumbs__item">
             <a class="breadcrumbs__link" href="#">
-                Мобильный транспорт
+                {{ category.title }}
             </a>
             </li>
             <li class="breadcrumbs__item">
             <a class="breadcrumbs__link">
-                Смартфон Xiaomi Mi Mix 3 6/128GB
+                {{ product.title }}
             </a>
             </li>
         </ul>
@@ -57,7 +57,7 @@
         <div class="item__info">
             <span class="item__code">Артикул: 150030</span>
             <h2 class="item__title">
-            Смартфон Xiaomi Mi Mix 3 6/128GB
+                {{ product.title }}
             </h2>
             <div class="item__form">
             <form class="form" action="#" method="POST">
@@ -214,13 +214,17 @@
 
 <script>
 import products from '../../data/products.js';
+import categories from '../../data/categories';
 
 export default {
   name: 'ProductPage',
   props: ['pageParams'],
   computed: {
-    products() {
+    product() {
       return products.find((product) => product.id === this.pageParams.id);
+    },
+    category() {
+      return categories.find((category) => category.id === this.product.categoryId);
     },
   },
 };
