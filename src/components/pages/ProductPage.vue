@@ -3,12 +3,12 @@
         <div class="content__top">
         <ul class="breadcrumbs">
             <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="index.html">
+            <a class="breadcrumbs__link" href="index.html" @click.prevent="gotoPage('main')">
                 Каталог
             </a>
             </li>
             <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="#">
+            <a class="breadcrumbs__link" href="#" @click.prevent="gotoPage('main')">
                 {{ category.title }}
             </a>
             </li>
@@ -215,6 +215,7 @@
 <script>
 import products from '../../data/products.js';
 import categories from '../../data/categories';
+import gotoPage from '../../helpers/gotoPage';
 
 export default {
   name: 'ProductPage',
@@ -226,6 +227,9 @@ export default {
     category() {
       return categories.find((category) => category.id === this.product.categoryId);
     },
+  },
+  methods: {
+    gotoPage,
   },
 };
 </script>

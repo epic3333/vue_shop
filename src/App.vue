@@ -26,7 +26,7 @@ export default {
     };
   },
   methods: {
-    goToPage(pageName, pageParams) {
+    gotoPage(pageName, pageParams) {
       this.currentPage = pageName;
       this.currentPageParams = pageParams || {};
     },
@@ -37,7 +37,7 @@ export default {
     },
   },
   created() {
-    eventBus.$on('gotoPage', (pageName, pageParams) => this.goToPage(pageName, pageParams));
+    eventBus.$on('gotoPage', (pageName, pageParams) => this.gotoPage(pageName, pageParams));
   },
 };
 </script>

@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import eventBus from '../../eventBus';
 import ProductImage from './ProductImage.vue';
 import ProductTitle from './ProductTitle.vue';
 import ProductPrice from './ProductPrice.vue';
 import ProductColor from './ProductColor.vue';
+import gotoPage from '../../helpers/gotoPage';
 
 export default {
   components: {
@@ -22,9 +22,7 @@ export default {
   name: 'ProductItem',
   props: ['product'],
   methods: {
-    gotoPage(pageName, pageParams) {
-      eventBus.$emit('gotoPage', pageName, pageParams);
-    },
+    gotoPage,
   },
 };
 </script>
