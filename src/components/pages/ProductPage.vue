@@ -23,8 +23,7 @@
         <section class="item">
         <div class="item__pics pics">
             <div class="pics__wrapper">
-            <img width="570" height="570" src="img/phone-square.jpg"
-            srcset="img/phone-square@2x.jpg 2x" alt="Название товара">
+            <img width="570" height="570" :src="product.image" :alt="product.title">
             </div>
             <ul class="pics__list">
             <li class="pics__item">
@@ -55,14 +54,14 @@
         </div>
 
         <div class="item__info">
-            <span class="item__code">Артикул: 150030</span>
+            <span class="item__code">Артикул: {{ product.id }}</span>
             <h2 class="item__title">
                 {{ product.title }}
             </h2>
             <div class="item__form">
             <form class="form" action="#" method="POST">
                 <b class="item__price">
-                18 990 ₽
+                {{ product.price }} ₽
                 </b>
 
                 <fieldset class="form__block">
