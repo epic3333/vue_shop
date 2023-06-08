@@ -213,8 +213,15 @@
 </template>
 
 <script>
+import products from '../../data/products.js';
+
 export default {
   name: 'ProductPage',
   props: ['pageParams'],
+  computed: {
+    products() {
+      return products.find((product) => product.id === this.pageParams.id);
+    },
+  },
 };
 </script>
