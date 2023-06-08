@@ -1,5 +1,5 @@
 <template>
-  <li class="catalog__item" @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
+  <li class="catalog__item" @click.prevent="gotoPage('product', {id: product.id})">
     <ProductImage :image="product.image" :title="product.title"></ProductImage>
     <ProductTitle :title="product.title"></ProductTitle>
     <ProductPrice :price="product.price"></ProductPrice>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import eventBus from '../../eventBus';
 import ProductImage from './ProductImage.vue';
 import ProductTitle from './ProductTitle.vue';
 import ProductPrice from './ProductPrice.vue';
@@ -20,6 +21,11 @@ export default {
   },
   name: 'ProductItem',
   props: ['product'],
+  methods: {
+    gotoPage(pageName, pageParams) {
+      eventBus.$emit('gotoPage', pageName, pageParams);
+    },
+  },
 };
 </script>
 
