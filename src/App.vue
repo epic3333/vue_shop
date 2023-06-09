@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import MainPage from './components/pages/MainPage.vue';
-import ProductPage from './components/pages/ProductPage.vue';
-import NotFoundPage from './components/pages/NotFoundPage.vue';
+import MainPage from './pages/MainPage.vue';
+import ProductPage from './pages/ProductPage.vue';
+import NotFoundPage from './pages/NotFoundPage.vue';
 import eventBus from './eventBus';
 
 const routes = {

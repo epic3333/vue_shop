@@ -199,10 +199,10 @@
 </template>
 
 <script>
-import products from '../../data/products.js';
-import categories from '../../data/categories';
-import gotoPage from '../../helpers/gotoPage';
-import numberFormat from '../../helpers/numberFormat';
+import products from '../data/products.js';
+import categories from '../data/categories';
+import gotoPage from '../helpers/gotoPage';
+import numberFormat from '../helpers/numberFormat';
 
 export default {
   name: 'ProductPage',

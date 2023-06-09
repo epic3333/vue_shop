@@ -27,10 +27,10 @@
     </main>
 </template>
 <script>
-import products from '../../data/products';
-import ProductList from '../Product/ProductList.vue';
-import BasePagination from '../BasePagination.vue';
-import ProductFilter from '../Filter/ProductFilter.vue';
+import products from '../data/products';
+import ProductList from '../components/Product/ProductList.vue';
+import BasePagination from '../components/BasePagination.vue';
+import ProductFilter from '../components/Filter/ProductFilter.vue';
 
 export default {
   name: 'MainPage',
