@@ -1,6 +1,6 @@
 <template>
-  <li class="catalog__item" @click.prevent="gotoPage('product', {id: product.id})">
-    <ProductImage :image="product.image" :title="product.title"></ProductImage>
+  <li class="catalog__item">
+    <ProductImage :productId="product.id" :image="product.image" :title="product.title"></ProductImage>
     <ProductTitle :title="product.title"></ProductTitle>
     <ProductPrice :price="product.price"></ProductPrice>
     <ProductColor :colorId="product.colorId"
