@@ -206,13 +206,12 @@ import numberFormat from '../helpers/numberFormat';
 
 export default {
   name: 'ProductPage',
-  props: ['pageParams'],
   filters: {
     numberFormat,
   },
   computed: {
     product() {
-      return products.find((product) => product.id === this.pageParams.id);
+      return products.find((product) => product.id === +this.$route.params.id);
     },
     category() {
       return categories.find((category) => category.id === this.product.categoryId);
