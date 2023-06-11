@@ -110,18 +110,18 @@
 
                 <div class="item__row">
                 <div class="form__counter">
-                    <button type="button" aria-label="Убрать один товар">
-                    <svg width="12" height="12" fill="currentColor">
-                        <use xlink:href="#icon-minus"></use>
-                    </svg>
+                    <button type="button" aria-label="Убрать один товар" @click="amountPrev">
+                        <svg width="12" height="12" fill="currentColor">
+                            <use xlink:href="#icon-minus"></use>
+                        </svg>
                     </button>
 
                     <input type="text" v-model.number="productAmount">
 
                     <button type="button" aria-label="Добавить один товар">
-                    <svg width="12" height="12" fill="currentColor">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
+                        <svg width="12" height="12" fill="currentColor" @click="amountNext">
+                            <use xlink:href="#icon-plus"></use>
+                        </svg>
                     </button>
                 </div>
 
@@ -224,6 +224,14 @@ export default {
   },
   methods: {
     gotoPage,
+    amountNext() {
+      // eslint-disable-next-line no-plusplus
+      return this.productAmount++;
+    },
+    amountPrev() {
+      // eslint-disable-next-line no-plusplus
+      return this.productAmount--;
+    },
     addToCart() {
       this.$store.commit(
         'addProductToCart',
