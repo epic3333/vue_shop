@@ -225,7 +225,10 @@ export default {
   methods: {
     gotoPage,
     addToCart() {
-      this.$store.state.cartProducts.push({ productId: this.product.id, amount: this.productAmount });
+      this.$store.commit(
+        'addProductToCart',
+        { productId: this.product.id, amount: this.productAmount },
+      );
     },
   },
 };
