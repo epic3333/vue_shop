@@ -11,9 +11,9 @@ export default new Vuex.Store({
     ],
   },
   mutations: {
-    addProductToCart(state, payload) {
+    addProductToCart(state, { productId, amount }) {
       state.cartProducts.push({
-        productId: payload.productId, amount: payload.amount,
+        productId, amount,
       });
     },
   },
