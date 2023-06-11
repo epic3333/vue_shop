@@ -1,6 +1,7 @@
 import Vue from 'vue';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vuex from 'vuex';
+import products from '../data/products';
 
 Vue.use(Vuex);
 
@@ -22,6 +23,14 @@ export default new Vuex.Store({
           productId, amount,
         });
       }
+    },
+  },
+  getters: {
+    cartDetailProducts(state) {
+      return state.cartProducts.map((item) => ({
+        ...item,
+        product: products.find((p) => p.id === item.productId),
+      }));
     },
   },
 });
