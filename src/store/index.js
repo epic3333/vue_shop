@@ -12,9 +12,16 @@ export default new Vuex.Store({
   },
   mutations: {
     addProductToCart(state, { productId, amount }) {
-      state.cartProducts.push({
-        productId, amount,
-      });
+      // eslint-disable-next-line no-shadow
+      const item = state.cartProducts.find((item) => item.productId === productId);
+
+      if (item) {
+        item.amount += amount;
+      } else {
+        state.cartProducts.push({
+          productId, amount,
+        });
+      }
     },
   },
 });
