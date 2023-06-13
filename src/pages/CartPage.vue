@@ -92,6 +92,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import { mapGetters } from 'vuex';
 import numberFormat from '../helpers/numberFormat';
 
 export default {
@@ -100,8 +102,9 @@ export default {
     numberFormat,
   },
   computed: {
+    ...mapGetters(['cartDetailProducts']),
     products() {
-      return this.$store.getters.cartDetailProducts;
+      return this.cartDetailProducts;
     },
   },
 };
