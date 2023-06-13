@@ -25,7 +25,7 @@
             </svg>
         </button>
 
-        <input type="text" :value="item.amount" name="count">
+        <input type="text" v-model.number="amount" name="count">
 
         <button type="button" aria-label="Добавить один товар">
             <svg width="10" height="10" fill="currentColor">
@@ -54,6 +54,16 @@ export default {
   props: ['item'],
   filters: {
     numberFormat,
+  },
+  computed: {
+    amount: {
+      get() {
+        return this.item.amount;
+      },
+      set(value) {
+        return this.$store.commit('updateCartProductAmoun', { productId: this.item.productId, amount: value });
+      },
+    },
   },
 };
 </script>

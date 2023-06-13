@@ -24,6 +24,13 @@ export default new Vuex.Store({
         });
       }
     },
+    updateCartProductAmoun(state, { productId, amount }) {
+      // eslint-disable-next-line no-shadow
+      const item = state.cartProducts.find((item) => item.productId === productId);
+      if (item) {
+        item.amount = amount;
+      }
+    },
   },
   getters: {
     cartDetailProducts(state) {
