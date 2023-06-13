@@ -48,6 +48,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import { mapMutations } from 'vuex';
 import numberFormat from '../helpers/numberFormat';
 
 export default {
@@ -67,9 +69,7 @@ export default {
     },
   },
   methods: {
-    deleteProduct(productId) {
-      this.$store.commit('deleteCartProduct', productId);
-    },
+    ...mapMutations({ deleteProduct: 'deleteCartProduct' }),
   },
 };
 </script>
