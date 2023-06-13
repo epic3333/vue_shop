@@ -38,7 +38,8 @@
         {{ (item.amount * item.product.price) | numberFormat }} ₽
         </b>
 
-        <button class="product__del button-del" type="button" aria-label="Удалить товар из корзины">
+        <button class="product__del button-del" type="button" aria-label="Удалить товар из корзины"
+                @click.prevent="deleteProduct(item.productId)">
         <svg width="20" height="20" fill="currentColor">
             <use xlink:href="#icon-close"></use>
         </svg>
@@ -63,6 +64,11 @@ export default {
       set(value) {
         return this.$store.commit('updateCartProductAmoun', { productId: this.item.productId, amount: value });
       },
+    },
+  },
+  methods: {
+    deleteProduct(productId) {
+      this.$store.commit('deleteCartProduct', productId);
     },
   },
 };
