@@ -32,5 +32,8 @@ export default new Vuex.Store({
         product: products.find((p) => p.id === item.productId),
       }));
     },
+    cartTotalPrice(state, getters) {
+      return getters.cartDetailProducts.reduce((acc, item) => (item.product.price * item.amount) + acc, 0);
+    },
   },
 });

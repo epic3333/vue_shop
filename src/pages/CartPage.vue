@@ -79,7 +79,7 @@
             Мы&nbsp;посчитаем стоимость доставки на&nbsp;следующем этапе
           </p>
           <p class="cart__price">
-            Итого: <span>32 970 ₽</span>
+            Итого: <span>{{ totalPrice | numberFormat }} ₽</span>
           </p>
 
           <button class="cart__button button button--primery" type="submit">
@@ -102,7 +102,7 @@ export default {
     numberFormat,
   },
   computed: {
-    ...mapGetters({ products: 'cartDetailProducts' }),
+    ...mapGetters({ products: 'cartDetailProducts', totalPrice: 'cartTotalPrice' }),
   },
 };
 </script>
