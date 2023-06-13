@@ -26,7 +26,7 @@
       <form class="cart__form form" action="#" method="POST">
         <div class="cart__field">
           <ul class="cart__list">
-            <li class="cart__item product" v-for="item in $store.getters.cartDetailProducts" :key="item.productId">
+            <li class="cart__item product" v-for="item in products" :key="item.productId">
               <div class="product__pic">
                 <img :src="item.product.image" width="120" height="120"
                      :alt="item.product.title">
@@ -98,6 +98,11 @@ export default {
   name: 'CartPage',
   filters: {
     numberFormat,
+  },
+  computed: {
+    products() {
+      return this.$store.getters.cartDetailProducts;
+    },
   },
 };
 </script>
