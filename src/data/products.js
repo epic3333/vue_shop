@@ -7,6 +7,7 @@ export default [
     image: '/img/karemat_moh.jpg',
     colorId: 7,
     colorVal: '#73B6EA',
+    colorName: 'Голубой',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export default [
     image: '/img/karemat_oksford.jpg',
     colorId: 6,
     colorVal: '#000',
+    colorName: 'Черный',
   },
   {
     id: 3,
@@ -25,15 +27,17 @@ export default [
     image: '/img/patito4e4nik.jpg',
     colorId: 1,
     colorVal: '#FFBE15',
+    colorName: 'Желтый',
   },
   {
     id: 4,
     categoryId: 4,
-    title: 'Радионяня Motorola MBP16lsjdflsdfj',
+    title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
     colorId: 2,
     colorVal: '#939393',
+    colorName: 'Серый',
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export default [
     image: '/img/toothbrush.jpg',
     colorId: 5,
     colorVal: '#FFF',
+    colorName: 'Белый',
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export default [
     image: '/img/phone.jpg',
     colorId: 3,
     colorVal: '#8BE000',
+    colorName: 'Салатовый',
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export default [
     image: '/img/phone-2.jpg',
     colorId: 6,
     colorVal: '#000',
+    colorName: 'Черный',
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ export default [
     image: '/img/board.jpg',
     colorId: 1,
     colorVal: '#FFBE15',
+    colorName: 'Желтый',
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ export default [
     image: '/img/phone-3.jpg',
     colorId: 4,
     colorVal: '#FF6B00',
+    colorName: 'Оранжевый',
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ export default [
     image: '/img/karemat_moh.jpg',
     colorId: 5,
     colorVal: '#FFF',
+    colorName: 'Белый',
   },
   {
     id: 11,
@@ -97,6 +107,7 @@ export default [
     image: '/img/karemat_oksford.jpg',
     colorId: 1,
     colorVal: '#FFBE15',
+    colorName: 'Желтый',
   },
   {
     id: 12,
@@ -106,5 +117,6 @@ export default [
     image: '/img/patito4e4nik.jpg',
     colorId: 6,
     colorVal: '#000',
+    colorName: 'Черный',
   },
 ];
