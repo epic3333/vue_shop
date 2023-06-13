@@ -102,10 +102,7 @@ export default {
     numberFormat,
   },
   computed: {
-    ...mapGetters(['cartDetailProducts']),
-    products() {
-      return this.cartDetailProducts;
-    },
+    ...mapGetters({ products: 'cartDetailProducts' }),
   },
 };
 </script>
