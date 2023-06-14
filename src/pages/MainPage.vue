@@ -69,7 +69,12 @@ export default {
       return filteredProducts;
     },
     products() {
-      return this.productsData ? this.productsData.items : [];
+      return this.productsData
+        ? this.productsData.items.map((product) => ({
+          ...product,
+          image: product.image.file.url,
+        }))
+        : [];
     },
     countProducts() {
       return this.filteredProducts.length;
