@@ -27,6 +27,8 @@
     </main>
 </template>
 <script>
+// eslint-disable-next-line
+import axios from 'axios';
 import products from '../data/products';
 import ProductList from '../components/Product/ProductList.vue';
 import BasePagination from '../components/BasePagination.vue';
@@ -44,6 +46,7 @@ export default {
       page: 1,
       productsPerPage: 6,
       fistPage: 1,
+      productsData: null,
     };
   },
   computed: {
@@ -75,6 +78,15 @@ export default {
     lastPage() {
       return Math.ceil(this.countProducts / this.productsPerPage);
     },
+  },
+  methods: {
+    loadProducts() {
+      axios.get('https://vue-study.skillbox.cc/api/products')
+        .then((response) => { this.productsData = response.data; });
+    },
+  },
+  created() {
+    this.loadProducts();
   },
 };
 </script>
