@@ -29,7 +29,6 @@
 <script>
 // eslint-disable-next-line
 import axios from 'axios';
-import products from '../data/products';
 import ProductList from '../components/Product/ProductList.vue';
 import BasePagination from '../components/BasePagination.vue';
 import ProductFilter from '../components/Filter/ProductFilter.vue';
@@ -50,24 +49,6 @@ export default {
     };
   },
   computed: {
-    filteredProducts() {
-      let filteredProducts = products;
-
-      if (this.filterPriceFrom > 0) {
-        filteredProducts = filteredProducts.filter((product) => product.price > this.filterPriceFrom);
-      }
-      if (this.filterPriceTo > 0) {
-        filteredProducts = filteredProducts.filter((product) => product.price < this.filterPriceTo);
-      }
-      if (this.filterCategoryId) {
-        filteredProducts = filteredProducts.filter((product) => product.categoryId === this.filterCategoryId);
-      }
-      if (this.filterColorId) {
-        filteredProducts = filteredProducts.filter((product) => product.colorId === this.filterColorId);
-      }
-
-      return filteredProducts;
-    },
     products() {
       return this.productsData
         ? this.productsData.items.map((product) => ({
@@ -85,7 +66,15 @@ export default {
   },
   methods: {
     loadProducts() {
-      axios.get(`https://vue-study.skillbox.cc/api/products?page=${this.page}&limit=${this.productsPerPage}`)
+      axios.get('https://vue-study.skillbox.cc/api/products', {
+        params: {
+          page: this.page,
+          limit: this.productsPerPage,
+          categoryId: this.filterCategoryId,
+          minPrice: this.filterPriceFrom,
+          maxPrice: this.filterPriceTo,
+        },
+      })
         .then((response) => { this.productsData = response.data; });
     },
   },
