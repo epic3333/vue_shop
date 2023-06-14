@@ -89,6 +89,11 @@ export default {
         .then((response) => { this.productsData = response.data; });
     },
   },
+  watch: {
+    page() {
+      this.loadProducts();
+    },
+  },
   created() {
     this.loadProducts();
   },
