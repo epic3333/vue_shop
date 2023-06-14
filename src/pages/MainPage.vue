@@ -82,6 +82,18 @@ export default {
     page() {
       this.loadProducts();
     },
+    filterPriceFrom() {
+      this.loadProducts();
+    },
+    filterPriceTo() {
+      this.loadProducts();
+    },
+    filterCategoryId() {
+      this.loadProducts();
+    },
+    filterColorId() {
+      this.loadProducts();
+    },
   },
   created() {
     this.loadProducts();
