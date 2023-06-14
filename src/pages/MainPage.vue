@@ -69,8 +69,7 @@ export default {
       return filteredProducts;
     },
     products() {
-      const offset = (this.page - 1) * this.productsPerPage;
-      return this.filteredProducts.slice(offset, offset + this.productsPerPage);
+      return this.productsData ? this.productsData.items : [];
     },
     countProducts() {
       return this.filteredProducts.length;
