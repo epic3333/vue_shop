@@ -6,7 +6,7 @@ export default [
     price: 2199,
     image: '/img/karemat_moh.jpg',
     colorId: 7,
-    colorVal: '#73B6EA',
+    colorVal: ['#73B6EA', '#000', '#FFBE15'],
     colorName: 'Голубой',
   },
   {
@@ -16,7 +16,7 @@ export default [
     price: 2299,
     image: '/img/karemat_oksford.jpg',
     colorId: 6,
-    colorVal: '#000',
+    colorVal: ['#FF6B00', '#000', '#8BE000'],
     colorName: 'Черный',
   },
   {
@@ -26,7 +26,7 @@ export default [
     price: 1999,
     image: '/img/patito4e4nik.jpg',
     colorId: 1,
-    colorVal: '#FFBE15',
+    colorVal: ['#FFBE15', '#FFF', '#939393'],
     colorName: 'Желтый',
   },
   {
@@ -36,7 +36,7 @@ export default [
     price: 3690,
     image: '/img/radio.jpg',
     colorId: 2,
-    colorVal: '#939393',
+    colorVal: ['#939393', '#73B6EA', '#000'],
     colorName: 'Серый',
   },
   {
@@ -46,7 +46,7 @@ export default [
     price: 5660,
     image: '/img/toothbrush.jpg',
     colorId: 5,
-    colorVal: '#FFF',
+    colorVal: ['#FFF', '#FF6B00', '#8BE000'],
     colorName: 'Белый',
   },
   {
@@ -56,7 +56,7 @@ export default [
     price: 21790,
     image: '/img/phone.jpg',
     colorId: 3,
-    colorVal: '#8BE000',
+    colorVal: ['#8BE000', '#939393', '#73B6EA'],
     colorName: 'Салатовый',
   },
   {
@@ -66,7 +66,7 @@ export default [
     price: 14960,
     image: '/img/phone-2.jpg',
     colorId: 6,
-    colorVal: '#000',
+    colorVal: ['#000', '#FF6B00', '#8BE000'],
     colorName: 'Черный',
   },
   {
@@ -76,7 +76,7 @@ export default [
     price: 24690,
     image: '/img/board.jpg',
     colorId: 1,
-    colorVal: '#FFBE15',
+    colorVal: ['#FFBE15', '#73B6EA', '#000'],
     colorName: 'Желтый',
   },
   {
@@ -86,7 +86,7 @@ export default [
     price: 8960,
     image: '/img/phone-3.jpg',
     colorId: 4,
-    colorVal: '#FF6B00',
+    colorVal: ['#FF6B00', '#FFBE15', '#FFF'],
     colorName: 'Оранжевый',
   },
   {
@@ -96,7 +96,7 @@ export default [
     price: 199,
     image: '/img/karemat_moh.jpg',
     colorId: 5,
-    colorVal: '#FFF',
+    colorVal: ['#FFF', '#000', '#FF6B00'],
     colorName: 'Белый',
   },
   {
@@ -106,7 +106,7 @@ export default [
     price: 299,
     image: '/img/karemat_oksford.jpg',
     colorId: 1,
-    colorVal: '#FFBE15',
+    colorVal: ['#FFBE15', '#FFF', '#939393'],
     colorName: 'Желтый',
   },
   {
@@ -116,7 +116,7 @@ export default [
     price: 999,
     image: '/img/patito4e4nik.jpg',
     colorId: 6,
-    colorVal: '#000',
+    colorVal: ['#8BE000', '#000', '#FF6B00'],
     colorName: 'Черный',
   },
 ];

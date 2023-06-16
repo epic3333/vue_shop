@@ -31,7 +31,8 @@
             <ul class="colors">
                 <li class="colors__item" v-for="color in colors" :key="color.id">
                 <label class="colors__label">
-                    <input class="colors__radio sr-only" type="radio" :value="color.id" v-model.number="currentColorId">
+                    <input class="colors__radio sr-only" type="radio" :value="color.value"
+                    v-model.number="currentColorValue">
                     <span class="colors__value" :style="'background-color:' + color.value">
                     </span>
                 </label>
@@ -115,13 +116,14 @@ import colors from '../../data/colors';
 
 export default {
   name: 'ProductFilter',
-  props: ['priceFrom', 'priceTo', 'categoryId', 'colorId'],
+  props: ['priceFrom', 'priceTo', 'categoryId', 'colorId', 'colorValue'],
   data() {
     return {
       currentPriceFrom: 0,
       currentPriceTo: 0,
       currentCategoryId: 0,
       currentColorId: 0,
+      currentColorValue: 0,
     };
   },
   computed: {
@@ -145,6 +147,9 @@ export default {
     colorId(value) {
       this.currentColorId = value;
     },
+    colorValue(value) {
+      this.currentColorValue = value;
+    },
   },
   methods: {
     submitUpdateFilter() {
@@ -152,12 +157,14 @@ export default {
       this.$emit('update:priceTo', this.currentPriceTo);
       this.$emit('update:categoryId', this.currentCategoryId);
       this.$emit('update:colorId', this.currentColorId);
+      this.$emit('update:colorValue', this.currentColorValue);
     },
     submitResetFilter() {
       this.$emit('update:priceFrom', 0);
       this.$emit('update:priceTo', 0);
       this.$emit('update:categoryId', 0);
       this.$emit('update:colorId', 0);
+      this.$emit('update:colorValue', 0);
     },
   },
 };
