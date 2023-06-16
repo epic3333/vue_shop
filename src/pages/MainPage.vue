@@ -67,16 +67,19 @@ export default {
   },
   methods: {
     loadProducts() {
-      axios.get(`${API_BASE_URL}/api/products`, {
-        params: {
-          page: this.page,
-          limit: this.productsPerPage,
-          categoryId: this.filterCategoryId,
-          minPrice: this.filterPriceFrom,
-          maxPrice: this.filterPriceTo,
-        },
-      })
-        .then((response) => { this.productsData = response.data; });
+      clearTimeout(this.loadProductsTimer);
+      this.loadProductsTimer = setTimeout(() => {
+        axios.get(`${API_BASE_URL}/api/products`, {
+          params: {
+            page: this.page,
+            limit: this.productsPerPage,
+            categoryId: this.filterCategoryId,
+            minPrice: this.filterPriceFrom,
+            maxPrice: this.filterPriceTo,
+          },
+        })
+          .then((response) => { this.productsData = response.data; });
+      }, 0);
     },
   },
   watch: {
