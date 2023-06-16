@@ -30,10 +30,10 @@
 <script>
 // eslint-disable-next-line
 import axios from 'axios';
-import products from '../data/products';
 import ProductList from '../components/Product/ProductList.vue';
 import BasePagination from '../components/BasePagination.vue';
 import ProductFilter from '../components/Filter/ProductFilter.vue';
+import { API_BASE_URL } from '../config';
 
 export default {
   name: 'MainPage',
@@ -52,24 +52,6 @@ export default {
     };
   },
   computed: {
-    filteredProducts() {
-      let filteredProducts = products;
-
-      if (this.filterPriceFrom > 0) {
-        filteredProducts = filteredProducts.filter((product) => product.price > this.filterPriceFrom);
-      }
-      if (this.filterPriceTo > 0) {
-        filteredProducts = filteredProducts.filter((product) => product.price < this.filterPriceTo);
-      }
-      if (this.filterCategoryId) {
-        filteredProducts = filteredProducts.filter((product) => product.categoryId === this.filterCategoryId);
-      }
-      if (this.filterColorValue) {
-        filteredProducts = filteredProducts.filter((product) => product.colorVal.includes(this.filterColorValue));
-      }
-
-      return filteredProducts;
-    },
     products() {
       return this.productsData
         ? this.productsData.items.map((product) => ({
@@ -87,12 +69,35 @@ export default {
   },
   methods: {
     loadProducts() {
-      axios.get(`https://vue-study.skillbox.cc/api/products?page=${this.page}&limit=${this.productsPerPage}`)
-        .then((response) => { this.productsData = response.data; });
+      clearTimeout(this.loadProductsTimer);
+      this.loadProductsTimer = setTimeout(() => {
+        axios.get(`${API_BASE_URL}/api/products`, {
+          params: {
+            page: this.page,
+            limit: this.productsPerPage,
+            categoryId: this.filterCategoryId,
+            minPrice: this.filterPriceFrom,
+            maxPrice: this.filterPriceTo,
+          },
+        })
+          .then((response) => { this.productsData = response.data; });
+      }, 0);
     },
   },
   watch: {
     page() {
+      this.loadProducts();
+    },
+    filterPriceFrom() {
+      this.loadProducts();
+    },
+    filterPriceTo() {
+      this.loadProducts();
+    },
+    filterCategoryId() {
+      this.loadProducts();
+    },
+    filterColorId() {
       this.loadProducts();
     },
   },
