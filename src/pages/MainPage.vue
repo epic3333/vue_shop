@@ -32,6 +32,7 @@ import axios from 'axios';
 import ProductList from '../components/Product/ProductList.vue';
 import BasePagination from '../components/BasePagination.vue';
 import ProductFilter from '../components/Filter/ProductFilter.vue';
+import { API_BASE_URL } from '../config';
 
 export default {
   name: 'MainPage',
@@ -66,7 +67,7 @@ export default {
   },
   methods: {
     loadProducts() {
-      axios.get('https://vue-study.skillbox.cc/api/products', {
+      axios.get(`${API_BASE_URL}/api/products`, {
         params: {
           page: this.page,
           limit: this.productsPerPage,

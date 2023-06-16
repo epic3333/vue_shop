@@ -113,6 +113,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 import colors from '../../data/colors';
+import { API_BASE_URL } from '../../config';
 
 export default {
   name: 'ProductFilter',
@@ -162,7 +163,7 @@ export default {
       this.$emit('update:colorId', 0);
     },
     loadCategories() {
-      axios.get('https://vue-study.skillbox.cc/api/productCategories')
+      axios.get(`${API_BASE_URL}/api/productCategories`)
         .then((response) => { this.categoriesData = response.data; });
     },
   },
