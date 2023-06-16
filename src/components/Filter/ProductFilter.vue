@@ -110,7 +110,8 @@
 </template>
 
 <script>
-import categories from '../../data/categories';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
 import colors from '../../data/colors';
 
 export default {
@@ -122,11 +123,12 @@ export default {
       currentPriceTo: 0,
       currentCategoryId: 0,
       currentColorId: 0,
+      categoriesData: null,
     };
   },
   computed: {
     categories() {
-      return categories;
+      return this.categoriesData ? this.categoriesData.items : [];
     },
     colors() {
       return colors;
@@ -159,6 +161,13 @@ export default {
       this.$emit('update:categoryId', 0);
       this.$emit('update:colorId', 0);
     },
+    loadCategories() {
+      axios.get('https://vue-study.skillbox.cc/api/productCategories')
+        .then((response) => { this.categoriesData = response.data; });
+    },
+  },
+  created() {
+    this.loadCategories();
   },
 };
 </script>
