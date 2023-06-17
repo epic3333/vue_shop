@@ -255,5 +255,11 @@ export default {
   created() {
     this.loadProduct();
   },
+  watch: {
+    // eslint-disable-next-line
+    '$route.params.id'() {
+      this.loadProduct();
+    },
+  },
 };
 </script>
