@@ -64,7 +64,9 @@ export default new Vuex.Store({
   actions: {
     loadCart(context) {
       axios
-        .get(`${API_BASE_URL}/api/baskets`)
+        .get(`${API_BASE_URL}/api/baskets`, {
+          userAccessKey: context.state.userAccessKey,
+        })
         .then((response) => {
           context.commit('updateUserAccessKey', response.data.user.accessKey);
           context.commit('updateCartProductsData', response.data.items);
