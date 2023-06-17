@@ -126,6 +126,7 @@ export default {
       currentCategoryId: 0,
       currentColorId: 0,
       currentColorValue: 0,
+      categoriesData: null,
     };
   },
   computed: {
