@@ -1,5 +1,7 @@
 <template>
-    <main class="content container">
+    <main class="content container" v-if="productsLoading">Загрузка товара</main>
+    <main class="content container" v-else-if="!productData">Ошибка загрузки товара</main>
+    <main class="content container" v-else>
         <div class="content__top">
         <ul class="breadcrumbs">
             <li class="breadcrumbs__item">
@@ -200,8 +202,6 @@
 
 <script>
 import axios from 'axios';
-import products from '../data/products.js';
-import categories from '../data/categories';
 import gotoPage from '../helpers/gotoPage';
 import numberFormat from '../helpers/numberFormat';
 import { API_BASE_URL } from '../config';
@@ -221,10 +221,10 @@ export default {
   },
   computed: {
     product() {
-      return products.find((product) => product.id === +this.$route.params.id);
+      return this.productData;
     },
     category() {
-      return categories.find((category) => category.id === this.product.categoryId);
+      return this.productData.category;
     },
   },
   methods: {
