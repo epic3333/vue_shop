@@ -199,16 +199,21 @@
 </template>
 
 <script>
+import axios from 'axios';
 import products from '../data/products.js';
 import categories from '../data/categories';
 import gotoPage from '../helpers/gotoPage';
 import numberFormat from '../helpers/numberFormat';
+import { API_BASE_URL } from '../config';
 
 export default {
   name: 'ProductPage',
   data() {
     return {
       productAmount: 1,
+      productData: null,
+      productsLoading: false,
+      productsLoadingFailing: false,
     };
   },
   filters: {
@@ -238,6 +243,17 @@ export default {
         { productId: this.product.id, amount: this.productAmount },
       );
     },
+    loadProduct() {
+      this.productsLoading = true;
+      this.productsLoadingFailing = false;
+      axios.get(`${API_BASE_URL}/api/products/${+this.$route.params.id}`)
+        .then((response) => { this.productData = response.data; })
+        .catch(() => { this.productsLoadingFailing = true; })
+        .then(() => { this.productsLoading = false; });
+    },
+  },
+  created() {
+    this.loadProduct();
   },
 };
 </script>

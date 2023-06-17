@@ -79,7 +79,7 @@ export default {
       this.productsLoadingFailing = false;
       clearTimeout(this.loadProductsTimer);
       this.loadProductsTimer = setTimeout(() => {
-        axios.get(`${API_BASE_URL}/api/products2`, {
+        axios.get(`${API_BASE_URL}/api/products/`, {
           params: {
             page: this.page,
             limit: this.productsPerPage,
@@ -91,7 +91,7 @@ export default {
           .then((response) => { this.productsData = response.data; })
           .catch(() => { this.productsLoadingFailing = true; })
           .then(() => { this.productsLoading = false; });
-      }, 3000);
+      }, 0);
     },
   },
   watch: {
