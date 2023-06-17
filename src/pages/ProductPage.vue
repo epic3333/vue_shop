@@ -252,13 +252,13 @@ export default {
         .then(() => { this.productsLoading = false; });
     },
   },
-  created() {
-    this.loadProduct();
-  },
   watch: {
     // eslint-disable-next-line
-    '$route.params.id'() {
-      this.loadProduct();
+    '$route.params.id': {
+      handler() {
+        this.loadProduct();
+      },
+      immediate: true,
     },
   },
 };
