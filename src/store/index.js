@@ -39,12 +39,12 @@ export default new Vuex.Store({
       this.state.cartProducts = state.cartProducts.filter((item) => item.productId !== productId);
     },
     updateUserAccessKey(state, accessKey) {
-      const newState = { ...state };
-      newState.userAccessKey = accessKey;
+      // eslint-disable-next-line no-param-reassign
+      state.userAccessKey = accessKey;
     },
     updateCartProductsData(state, items) {
-      const newState = { ...state };
-      newState.cartProductsData = items;
+      // eslint-disable-next-line no-param-reassign
+      state.cartProductsData = items;
     },
   },
   getters: {
