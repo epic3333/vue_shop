@@ -1,7 +1,9 @@
 import Vue from 'vue';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vuex from 'vuex';
+import axios from 'axios';
 import products from '../data/products';
+import { API_BASE_URL } from '../config';
 
 Vue.use(Vuex);
 
@@ -10,6 +12,8 @@ export default new Vuex.Store({
     cartProducts: [
       { productId: 1, amount: 1 },
     ],
+    userAccessKey: null,
+    cartProductsData: [],
   },
   mutations: {
     addProductToCart(state, { productId, amount }) {
@@ -34,6 +38,14 @@ export default new Vuex.Store({
     deleteCartProduct(state, productId) {
       this.state.cartProducts = state.cartProducts.filter((item) => item.productId !== productId);
     },
+    updateUserAccessKey(state, accessKey) {
+      const newState = { ...state };
+      newState.userAccessKey = accessKey;
+    },
+    updateCartProductsData(state, items) {
+      const newState = { ...state };
+      newState.cartProductsData = items;
+    },
   },
   getters: {
     cartDetailProducts(state) {
@@ -47,6 +59,16 @@ export default new Vuex.Store({
     },
     cartTotalCount(state) {
       return state.cartProducts.length;
+    },
+  },
+  actions: {
+    loadCart(context) {
+      axios
+        .get(`${API_BASE_URL}/api/baskets`)
+        .then((response) => {
+          context.commit('updateUserAccessKey', response.data.user.accessKey);
+          context.commit('updateCartProductsData', response.data.items);
+        });
     },
   },
 });

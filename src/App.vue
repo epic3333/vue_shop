@@ -13,5 +13,8 @@ import FooterMain from './components/FooterMain.vue';
 export default {
   name: 'App',
   components: { HeaderMain, FooterMain },
+  created() {
+    this.$store.dispatch('loadCart');
+  },
 };
 </script>
