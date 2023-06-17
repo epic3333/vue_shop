@@ -18,7 +18,9 @@
 
             <section class="catalog">
                 <div v-if="productsLoading">Загрузка товаров...</div>
-                <div v-if="productsLoadingFailing">Произошла ошибка загрузки товаров...</div>
+                <div v-if="productsLoadingFailing">Произошла ошибка загрузки товаров...
+                  <button @click.prevent="loadProducts">Загрузить товары еще раз</button>
+                </div>
                 <ProductList :products="products"></ProductList>
                 <BasePagination v-model="page"
                                 :count="countProducts"
