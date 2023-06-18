@@ -65,7 +65,7 @@ export default new Vuex.Store({
     loadCart(context) {
       axios
         .get(`${API_BASE_URL}/api/baskets`, {
-          userAccessKey: context.state.userAccessKey,
+          params: { userAccessKey: context.state.userAccessKey },
         })
         .then((response) => {
           if (!context.state.userAccessKey) {
