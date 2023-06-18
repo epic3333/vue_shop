@@ -68,7 +68,10 @@ export default new Vuex.Store({
           userAccessKey: context.state.userAccessKey,
         })
         .then((response) => {
-          context.commit('updateUserAccessKey', response.data.user.accessKey);
+          if (!context.state.userAccessKey) {
+            localStorage.setItem('userAccessKey', response.data.user.accessKey);
+            context.commit('updateUserAccessKey', response.data.user.accessKey);
+          }
           context.commit('updateCartProductsData', response.data.items);
         });
     },
