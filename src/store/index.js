@@ -1,8 +1,8 @@
+/* eslint-disable */
 import Vue from 'vue';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vuex from 'vuex';
 import axios from 'axios';
-import products from '../data/products';
 import { API_BASE_URL } from '../config';
 
 Vue.use(Vuex);
@@ -56,10 +56,17 @@ export default new Vuex.Store({
   },
   getters: {
     cartDetailProducts(state) {
-      return state.cartProducts.map((item) => ({
-        ...item,
-        product: products.find((p) => p.id === item.productId),
-      }));
+      return state.cartProducts.map((item) => {
+        const product = state.cartProductsData.find((p) => p.product.id === item.productId).product;
+
+        return {
+          ...item,
+          product: {
+            ...product,
+            image: product.image.file.url
+          }
+        }
+      });
     },
     cartTotalPrice(state, getters) {
       return getters.cartDetailProducts.reduce((acc, item) => (item.product.price * item.amount) + acc, 0);
