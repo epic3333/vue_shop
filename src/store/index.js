@@ -9,9 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    cartProducts: [
-      { productId: 1, amount: 1 },
-    ],
+    cartProducts: [],
     userAccessKey: null,
     cartProductsData: [],
   },
@@ -46,6 +44,15 @@ export default new Vuex.Store({
       // eslint-disable-next-line no-param-reassign
       state.cartProductsData = items;
     },
+    syncCartProducts(state) {
+      // eslint-disable-next-line
+      state.cartProducts = state.cartProductsData.map((item) => (
+        {
+          productId: item.product.id,
+          amount: item.quantity,
+        }
+      ));
+    },
   },
   getters: {
     cartDetailProducts(state) {
@@ -73,6 +80,7 @@ export default new Vuex.Store({
             context.commit('updateUserAccessKey', response.data.user.accessKey);
           }
           context.commit('updateCartProductsData', response.data.items);
+          context.commit('syncCartProducts');
         });
     },
   },
